@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: database
+  description: Relational Database
+spec:
+  type: database
+  owner: vam-sre-team
+  system: sales-platform

@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Platform-WebApp
+  description: This is Terraform Configuration for Claims API. Configuration creates the resource group, Service Plan and Web App. Claims API is being deployed on WebApp.
+  annotations:
+    github.com/project-slug: 'kalpakgandhi76/claims-infra-iac'    
+    jira.com/project-key: 'CLAIM'
+    terraform/organization: 'ValueMomentumInc'
+    terraform/workspaces: 'claims-infra-workspace'
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
+  system: Platform  

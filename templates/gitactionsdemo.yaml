@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demo-gitactions-app
+  description: git action demo application
+  annotations:
+    github.com/project-slug: 'kalpakgandhi76/gitactions'
+spec:
+  type: service
+  lifecycle: production
+  owner: user:kalpakgandhi76

@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: sales-platform
+  description: Sales Platform for Personal Auto, Home owners and Renters Insurance
+spec:
+  owner: vam-sre-team
+  domain: newbusiness

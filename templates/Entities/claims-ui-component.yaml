@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: claims-web
+  description: User Interface for Claims
+  annotations:
+    github.com/project-slug: 'kalpakgandhi76/gitactions'
+    jira.com/project-key: 'CLAIM'  
+spec:
+  type: website
+  lifecycle: production
+  owner: vam-sre-team
+  system: claims-platform  

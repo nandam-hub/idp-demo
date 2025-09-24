@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: agents-api
+  description: This is a micro Service for Agents or Controllers. It is hosted on Kubernetes and provides multiple functionality i.e. Quote for Auto, Address verification, Rating, Underwriting and Credit Rating.
+  annotations:
+    kubernetes.io/api-server: 'https://anycompany-workload-zrroix39.hcp.eastus.azmk8s.io'
+    backstage.io/kubernetes-id: 'agentsapi-app'
+    backstage.io/kubernetes-namespace: 'dev'
+    github.com/project-slug: 'kalpakgandhi76/salesapi-kubernetes'    
+    jira.com/project-key: 'CLAIM'  
+    datadoghq.com/dashboard-url: 'https://p.datadoghq.com/sb/096e0d70-d8cc-11ef-8ca4-4a38ecb37b42-269b619dea90e28c11df26ad92f94456'
+    datadoghq.com/graph-token: '888311dcd5c0585b04735919f7982ddba649cfd2b38b45cb5b408e37fc834a20'
+    datadoghq.com/site: 'datadoghq.com'
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://www.valuemomentum.com/who-we-serve/personal-lines
+      title: Personallines Agents
+      icon: Language
+spec:
+  type: service
+  lifecycle: production
+  owner: vam-sre-team
+  system: sales-platform
+  providesApis:
+    - sales-platform-api
+  dependsOn:
+    - resource:database
+    - resource:redis-cache
+    - component:lookup-api

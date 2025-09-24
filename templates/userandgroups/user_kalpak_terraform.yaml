@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: gandhi76
+  description: A user entity for Kalpak Gandhi
+  tags:
+    - admin
+    - developer
+spec:
+  profile:
+    displayName: Kalpak Gandhi
+    email: kalpakkumar.gandhi@valuemomentum.com
+  memberOf:
+    - vam-sre-team
+    - devops-team
+    - dev-team

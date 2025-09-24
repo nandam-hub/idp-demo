@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: claims-platform
+  description: Claims Platform for Personal Auto
+spec:
+  owner: vam-sre-team
+  domain: claims

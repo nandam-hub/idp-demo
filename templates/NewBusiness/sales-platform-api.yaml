@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: sales-platform-api
+  description: Sales Microservices 
+spec:
+  type: openapi
+  lifecycle: production
+  owner: vam-sre-team
+  system: sales-platform
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: NewBusiness API
+      license:
+        name: AnyCompany
+    servers:
+      - url: https://newbusiness-api.azurewebsites.net
+    paths:
+      /api/status:
+        get:
+          summary: Get Status

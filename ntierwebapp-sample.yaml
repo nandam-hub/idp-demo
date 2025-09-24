@@ -1,0 +1,272 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: ntiersample-app
+  title: Headless API Serivce
+  description: Create a new Headless API Service
+  tags:
+    - c#
+    - csharp
+    - recommended
+    - website
+    - component
+    - eks
+spec:
+  owner: group:vam-sre-team
+  type: component
+
+  parameters:
+    - title: Provide Application information
+      required:
+        - component_id
+        - system
+        - lifecycle
+        - owner
+        - type
+      properties:
+        component_id:
+          title: Name
+          type: string
+          pattern: "^([a-z0-9\\-]+)$"
+          description: Unique name of the component
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+          default: claimsapi
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this service is for.
+          default : Claims Platform API
+        language:
+          title: Language
+          description: 'Application Language'
+          type: string
+          default: csharp
+          enum:
+            - csharp
+            - python
+            - php
+        system:
+          title: System
+          type: string
+          description: System of the component
+          default: example
+          ui:field: EntityPicker
+          ui:options:
+            allowedKinds:
+              - System
+              - Service
+            defaultKind: Service
+        lifecycle:
+          title: Lifecycle
+          description: 'Application lifecycle'
+          type: string
+          default: experimental
+          enum:
+            - deprecated
+            - experimental
+            - production
+        type:
+          title: Type
+          description: 'Application type'
+          type: string
+          default: service
+          enum:
+            - service
+            - component
+            - library
+        owner:
+          title: Owner
+          type: string
+          default: sre-team
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group          
+
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string          
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+            allowedOwners:
+              - sre-team
+              - guests
+            
+            # allowedRepos:
+            #   - ${{ parameters.component_id }}            
+
+    - title: Deployment Parameters
+      description: Set ECS Deployment parameterts
+      properties:
+        kubernetes:
+          title: Enable ECS Deployment          
+          properties:
+            status:
+              title: enabled
+              description: Checking this will also create ECS Deployment
+              type: boolean
+              default: true
+
+            env:
+              title: Environment
+              description: 'Environment to create resources'
+              properties:
+                name:
+                  title: Select environments
+                  type: array
+                  items:
+                    type: string
+                    default: development
+                    enum:
+                      - development
+                      - staging
+                      - production
+                  uniqueItems: true
+                  ui:widget: checkboxes
+
+            autoscaling:
+              title: Elastic Container 
+              description: Elastic Container Service Properties
+              properties:                
+                clusterName:
+                  title: clusterName
+                  description: Set Cluster Name
+                  type: string
+                  default: vamclustername
+                launchType:
+                  title: launchType
+                  description: Set Launch Type
+                  type: string
+                  default: Fargate                                     
+                desitedTasks:
+                  title: desitedTasks
+                  description: Set Desired Tasks
+                  type: integer
+                  default: 2
+    - title: Infrastructure Parameters
+      description: Create Infrastrucuture Resources
+      properties:               
+        Bucket:
+          title: AWS S3 Bucket
+          description: An Bucket is a managed resource that represents an AWS S3 Bucket.
+          properties:
+            enabled:
+              title: Enable S3 Bucket
+              description: Create S3 Bucket
+              type: boolean
+              default: true
+            acl:
+              title: Set S3 ACL
+              description: Set S3 ACL
+              type: string
+              default: private
+              enum:
+                - private
+                - public
+            locationConstraint:
+              title: Set S3 locationConstraint
+              description: Set S3 locationConstraint
+              type: string
+              default: us-east-1
+              enum:
+                - us-east-1           
+    - title: Database Parameters
+      description: Database Parameters
+      properties:       
+        RDSInstance:
+              title: AWS RDSInstance
+              description: Set RDSInstance Parameters
+              properties:
+                enabled:
+                  title: Enable RDSInstance
+                  description: Create RDSInstance
+                  type: boolean
+                  default: true
+                allocatedStorage:
+                  title: allocatedStorage
+                  description: allocatedStorage
+                  type: integer
+                  default: 10
+                dbInstanceClass:
+                  title: Set RDSInstance dbInstanceClass
+                  description: Set RDSInstance dbInstanceClass
+                  type: string
+                  default: db.t2.small
+                  enum:
+                    - db.t2.small
+                    - db.t2.medium
+                engine:
+                  title: engine
+                  description: Set RDSInstance engine
+                  type: string
+                  default: mysql
+                  enum:
+                    - mysql
+                    - postgres
+                region:
+                  title: Set RDSInstance region
+                  description: Set region
+                  type: string
+                  default: us-east-1
+                  enum:
+                    - us-east-1
+                publiclyAccessible:
+                  title: Enable RDSInstance publiclyAccessible
+                  description: publiclyAccessible
+                  type: boolean
+                  default: true
+
+  steps:
+    - id: template
+      name: Fetch Application Template
+      action: debug:log
+      input:
+        message: "This step will fetch the Application template"
+        
+    - id: publish
+      name: Fetch IaC Template
+      action: debug:log
+      input:
+        message: "This step will fetch the IaC template"    
+
+    - id: fetch-kubernetes
+      name: Create Repository for Application and IaC
+      action: debug:log
+      input:
+        message: "This step will create the Application and IaC repository"   
+
+    - id: gitops
+      name: "Open PR in GitOps Repository"
+      action: debug:log
+      input:
+        message: "This step will create the PR"  
+
+    - id: register
+      name: Register Application in Catalog
+      action: debug:log
+      input:
+        message: "This step will Register the application."  
+
+    # - name: Results
+    #   if: ${{ parameters.dryRun }}
+    #   action: debug:log
+    #   input:
+    #     listWorkspace: true
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: GitOps Pull Request
+        url: ${{ steps.gitops.output.remoteUrl }}
+      - title: Open Catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}

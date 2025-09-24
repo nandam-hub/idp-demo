@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demo-dynatrace-app
+  description: Dynatrace demo application
+  annotations:
+    dynatrace.com/dynatrace-entity-id: 'HOST-CB5B2BEE78622B15'
+    dynatrace.com/synthetics-ids: 'HTTP_CHECK-46A77046E4F86353'
+spec:
+  type: service
+  lifecycle: production
+  owner: user:kalpakgandhi76

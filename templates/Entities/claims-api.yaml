@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: claimsapi
+  description: Claims Microservices 
+spec:
+  type: openapi
+  lifecycle: production
+  owner: vam-sre-team
+  system: claims-platform
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: Claims API
+      license:
+        name: GlobalTrust
+    servers:
+      - url: http://artist.spotify.net/v1
+    paths:
+      /artists:
+        get:
+          summary: List all Claims

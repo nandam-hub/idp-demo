@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: lookup-api
+  description: This is a Look up API. It provides all lookups. 
+  annotations:   
+    jira.com/project-key: 'CLAIM'  
+spec:
+  type: service
+  lifecycle: production
+  owner: vam-sre-team
+  system: claims-platform
+ 

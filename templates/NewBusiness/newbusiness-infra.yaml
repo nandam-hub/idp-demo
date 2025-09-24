@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Platform-Kubernetes
+  description: New Business Infrastrcture component. This is terraform configuration to create Non-Production cluster to house the New Business components i.e. Sales API, Sales UI etc.,
+  annotations:
+    github.com/project-slug: 'kalpakgandhi76/kubernetes-infra-iac'    
+    jira.com/project-key: 'CLAIM'
+    terraform/organization: 'ValueMomentumInc'
+    terraform/workspaces: 'kubernetes-workspace'
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
+  system: Platform  

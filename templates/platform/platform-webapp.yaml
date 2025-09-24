@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Platform-WebApp
+  description: This Project is Terraform Configuration for Sales API. It creates Resource Group, App Service Plan and Web App with .NET 9 application stack. The Terraform workspace name is "newbusiness-infra-workspace". 
+  annotations:
+    github.com/project-slug: 'kalpakgandhi76/newbusiness-iac'    
+    jira.com/project-key: 'CLAIM'
+    terraform/organization: 'ValueMomentumInc'
+    terraform/workspaces: 'newbusiness-infra-workspace'
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
+  system: Platform   

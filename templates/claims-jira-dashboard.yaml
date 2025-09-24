@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Claims-Project-Jira-Dashboard
+  description: JIRA Dashboard for claims project
+  annotations:   
+    jira.com/project-key: 'CLAIM'  
+spec:
+  type: service
+  lifecycle: production  
+  owner: vam-sre-team
+  system: claims-platform
+  providesApis:
+    - claims-api

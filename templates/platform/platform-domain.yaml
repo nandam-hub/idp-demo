@@ -1,0 +1,7 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: Infrastructure
+  description: Infrastrcuture domain providing Provisioning , Deployment and Configuration platforms for various Cloud Providers.
+spec:
+  owner: platform-team 

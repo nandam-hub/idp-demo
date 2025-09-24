@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sales-api
+  description: This is a micro Service for Sales UI. It provides multiple functionality i.e. Quote for Auto, Address verification, Rating, Underwriting and Credit Rating.
+  annotations:
+    github.com/project-slug: 'kalpakgandhi76/newbusiness'    
+    jira.com/project-key: 'CLAIM'  
+spec:
+  type: service
+  lifecycle: production
+  owner: vam-sre-team
+  system: sales-platform
+  providesApis:
+    - sales-platform-api
+  dependsOn:
+    - resource:database
+    - resource:redis-cache
+    - component:lookup-api

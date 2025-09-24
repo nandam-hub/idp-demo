@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: Platform
+  description: Infrastrcuture Configuration, Provisioning, Security and automation for Personal Auto, Underwriting, Rating Home owners and Renters Insurance. 
+spec:
+  owner: platform-team
+  domain: Infrastructure

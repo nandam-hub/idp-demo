@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: abhijitjoshi79
+  description: A user entity for Abhijit Joshi
+  tags:
+    - admin
+    - director    
+spec:
+  profile:
+    displayName: Abhijit Joshi
+    email: abhijit.joshi@anycompany.com
+  memberOf:
+    - vam-sre-team
+    - platform-team

@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: platform-team
+  description: Platform Engg.Team
+  tags:
+    - devops    
+    - cloud-platform
+    - sre
+  links:
+    - url: http://www.valuemomentum.com/
+      title: Website
+spec:
+  type: organization
+  profile:
+    displayName: Platform Engineering Team
+    email: platformengg@anycompany.com
+  children: []

@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demo-kubernetes-app
+  description: Kubernetes demo application
+  annotations:
+    backstage.io/kubernetes-id: 'nginx-app'
+    backstage.io/kubernetes-namespace: 'backstage-demo'
+spec:
+  type: service
+  lifecycle: production
+  owner: user:kalpakgandhi76

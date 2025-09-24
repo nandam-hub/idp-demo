@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: claims-api
+  description: This is a Claims API Micro Service for Claims UI. It provides functionality to Create Claim , Update Claim or Resolve Claim. 
+  annotations:
+    github.com/project-slug: 'kalpakgandhi76/claims-backend-api'    
+    jira.com/project-key: 'CLAIM'
+  links:
+    - url: https://www.valuemomentum.com/solutions/claims/claims-optimization
+      title: Claims Optimization
+      icon: Language
+spec:
+  type: service
+  lifecycle: production
+  owner: vam-sre-team
+  system: claims-platform
+  providesApis:
+    - claimsapi
+  dependsOn:
+    - resource:database
+    - resource:redis-cache
+    - component:lookup-api

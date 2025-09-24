@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: vam-sre-team
+  description: Engineering Team
+  tags:
+    - devops
+    - cloud-architecture
+    - cloud-platform
+    - sre
+  links:
+    - url: http://www.valuemomentum.com/
+      title: Website
+spec:
+  type: organization
+  profile:
+    displayName: Engineering Team
+    email: cloudengg@anycompany.com
+  children: []

@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: LakshmanNanduriVM
+  description: A user entity for Lakshman Nanduri
+  tags:
+    - admin
+    - director    
+spec:
+  profile:
+    displayName: Lakshaman Nanduri
+    email: lakshaman.nanduri@anycompany.com
+  memberOf:
+    - vam-sre-team
+    - platform-team

@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: redis-cache
+  description: Redis Cache for storoage
+spec:
+  type: cache
+  owner: vam-sre-team
+  system: sales-platform

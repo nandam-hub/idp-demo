@@ -1,0 +1,9 @@
+site_name: 'New Business Platform'
+
+nav:
+  - Home: index.md
+  - Being Agent: agentapi_2.md
+  - Conclusion: agentapi_3.md
+
+plugins:
+  - techdocs-core
