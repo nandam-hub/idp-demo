@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: nareshreddivari
+  description: A user entity for Naresh Reddy
+  tags:
+    - admin
+    - developer    
+spec:
+  profile:
+    displayName: Naresh Reddy
+    email: Naresh.Reddivari@valuemomentum.com
+  memberOf:
+    - vam-sre-team
+    - platform-team
