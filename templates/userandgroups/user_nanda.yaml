@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: nandam-hub
+  description: A user entity for Nanda Marri
+  tags:
+    - admin
+    - developer    
+spec:
+  profile:
+    displayName: Nanda Marri
+    email: nandakishore.marri@anycompany.com
+  memberOf:
+    - vam-sre-team
+    - platform-team
